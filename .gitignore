@@ -11,3 +11,4 @@ NDX100_M5 *.csv
 NDX100_M5_*.csv
 equity_ndx_real.png
 audit_holdout.png
+smc_dev_results.csv

@@ -7,3 +7,6 @@ opt_results.csv
 equity_optimized.png
 equity_nasdaq.png
 qqq.json
+NDX100_M5 *.csv
+NDX100_M5_*.csv
+equity_ndx_real.png

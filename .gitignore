@@ -3,3 +3,5 @@ __pycache__/
 fvg_lvn_trades.csv
 equity_curve.png
 equity_15m.png
+opt_results.csv
+equity_optimized.png

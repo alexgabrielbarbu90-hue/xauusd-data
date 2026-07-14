@@ -76,7 +76,8 @@ def fast_run(p):
             continue
         direction = imp
         sl = (z_bot - p.sl_buf) if direction == 1 else (z_top + p.sl_buf)
-        risk = abs(entry - sl)
+        # risc SEMNAT (fix audit): abs() crea castiguri fictive pe zone stale.
+        risk = (entry - sl) * direction
         if risk <= 0:
             continue
         tp = None

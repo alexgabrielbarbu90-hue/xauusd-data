@@ -109,7 +109,8 @@ def run(df, rr=1.5, lvn_pct=25, h0=15, h1=19, hours=True,
         if eidx is None:
             continue
         sl = (z_bot - SLBUF_PCT * entry) if imp == 1 else (z_top + SLBUF_PCT * entry)
-        risk = abs(entry - sl)
+        # risc SEMNAT (fix audit): abs() crea castiguri fictive pe zone stale.
+        risk = (entry - sl) * imp
         if risk <= 0:
             continue
         tp = entry + imp * rr * risk

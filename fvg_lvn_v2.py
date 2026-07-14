@@ -90,7 +90,12 @@ def run(df, p):
             sl = z_bot - p.sl_buf
         else:
             sl = z_top + p.sl_buf
-        risk = abs(entry - sl)
+        # risc SEMNAT: daca intrarea e dincolo de SL (zona strapunsa complet,
+        # ex. atinsa in afara ferestrei orare), trade-ul e imposibil live -> skip.
+        # NOTA AUDIT: versiunea veche folosea abs(entry - sl), ceea ce transforma
+        # aceste cazuri in castiguri fictive (~+1R). Toate rezultatele generate
+        # inainte de acest fix sunt INVALIDE (vezi audit_live.py).
+        risk = (entry - sl) * direction
         if risk <= 0:
             continue
 

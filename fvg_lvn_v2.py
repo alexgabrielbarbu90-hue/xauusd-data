@@ -132,8 +132,8 @@ def run(df, p):
 
         gross = (exit_px - entry) * direction
         net = gross - p.cost
-        trades.append({"date": d, "dir": direction, "R": net / risk,
-                       "net": net, "outcome": outcome, "risk": risk})
+        trades.append({"date": d, "entry_dt": df["dt"].iloc[eidx], "dir": direction,
+                       "R": net / risk, "net": net, "outcome": outcome, "risk": risk})
         busy = k
     return pd.DataFrame(trades)
 
